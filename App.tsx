@@ -26,19 +26,13 @@ const App = () => {
           Geolocation.getCurrentPosition(
             position => {
               const coords = position.coords;
-              console.log(
-                'latitude:',
-                coords.latitude,
-                'longitude:',
-                coords.longitude,
-              );
               setState(coords);
             },
             error => {
               console.log(error.code, error.message);
             },
             {
-              enableHighAccuracy: false,
+              enableHighAccuracy: true,
               timeout: 10000,
               maximumAge: 100000,
             },
@@ -59,7 +53,7 @@ const App = () => {
   return (
     <ImageBackground
       style={styles.image}
-      source={require('./Component/weather_background.jpeg')}>
+      source={require('./assets/image/weather_background.jpeg')}>
       <Weather latitude={state.latitude} longitude={state.longitude} />
     </ImageBackground>
   );

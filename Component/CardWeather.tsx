@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-function CardWeather({temp}) {
+const CardWeather = ({temp}) => {
   return (
     <View>
       <Text style={styles.temp}>{temp.day}&deg;</Text>
@@ -10,17 +10,17 @@ function CardWeather({temp}) {
       </Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   temp: {
     marginTop: 5,
     fontSize: 20,
-    color: 'grey',
+    color: 'white',
     textAlign: 'center',
   },
   interval: {
-    color: 'grey',
+    color: 'white',
     textAlign: 'center',
     marginBottom: 15,
   },

@@ -2,27 +2,22 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import CardWeather from './CardWeather';
 import HeaderWeather from './HeaderWeather';
+import WeatherService from '../service/WeatherService';
 
-function Weather({longitude, latitude}) {
+function Weather({latitude, longitude}) {
   const [days, setDays] = useState(null);
   const [country, setCountry] = useState('');
-
   useEffect(() => {
-    const API_KEY = '5c4156595102a839367c8bcbc557595f';
     if (!latitude && !longitude) {
       return;
     }
-    fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`,
-    )
-      .then(res => res.json())
-      .then(data => {
-        console.log('Data List Loaded', data);
-        setCountry(data.timezone);
-        setDays(data.daily);
-      })
-      .catch(error => console.log(error.message));
+
+    WeatherService({latitude, longitude}).then(data => {
+      setCountry(data.timezone);
+      setDays(data.daily);
+    });
   }, [longitude, latitude]);
+
   const week = days?.slice(1, 8);
   const headerDay = days && days[0];
   return (
@@ -48,7 +43,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   container: {
-    marginTop: 100,
+    marginTop: 50,
   },
 });
 

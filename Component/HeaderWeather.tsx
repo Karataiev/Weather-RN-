@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-function HeaderWeather({temp, weather}) {
+const HeaderWeather = ({temp, weather}) => {
   return (
     <View style={styles.horizontal}>
       <Text style={styles.interval}>{weather[0].description}</Text>
@@ -11,11 +11,10 @@ function HeaderWeather({temp, weather}) {
       </Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   day: {
-    marginTop: -15,
     fontSize: 50,
     color: 'white',
     textAlign: 'center',
