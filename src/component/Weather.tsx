@@ -3,8 +3,9 @@ import {StyleSheet, Text, View} from 'react-native';
 import CardWeather from './CardWeather';
 import HeaderWeather from './HeaderWeather';
 import WeatherService from '../service/WeatherService';
+import IWeather from '../interface/interface';
 
-function Weather({latitude, longitude}) {
+const Weather: React.FC = ({latitude, longitude}: IWeather) => {
   const [days, setDays] = useState(null);
   const [country, setCountry] = useState('');
   useEffect(() => {
@@ -33,7 +34,7 @@ function Weather({latitude, longitude}) {
       )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   country: {

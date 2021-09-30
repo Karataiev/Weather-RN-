@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {ImageBackground, StyleSheet} from 'react-native';
-import Weather from './Component/Weather';
-import CoordsService from './service/CoordsService';
+import Weather from './src/component/Weather';
+import CoordsService from './src/service/CoordsService';
 import Geolocation from 'react-native-geolocation-service';
 
-const App = () => {
+const App: React.FC = () => {
   const [state, setState] = useState({latitude: 0, longitude: 0});
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const App = () => {
   return (
     <ImageBackground
       style={styles.image}
-      source={require('./assets/image/weather_background.jpeg')}>
+      source={require('./src/assets/image/weather_background.jpeg')}>
       <Weather latitude={state.latitude} longitude={state.longitude} />
     </ImageBackground>
   );

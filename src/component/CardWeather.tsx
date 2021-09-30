@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import ICardWeather from '../interface/interface';
 
-const CardWeather = ({temp}) => {
+const CardWeather: React.FC = ({temp}: ICardWeather) => {
   return (
     <View>
       <Text style={styles.temp}>{temp.day}&deg;</Text>
