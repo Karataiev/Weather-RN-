@@ -18,3 +18,8 @@ export interface IWeather {
   latitude: number;
   longitude: number;
 }
+
+export interface IGranted {
+  title: string;
+  message: string;
+}

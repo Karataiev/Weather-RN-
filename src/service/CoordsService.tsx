@@ -1,10 +1,11 @@
 import {Platform, PermissionsAndroid} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
+import IGranted from '../interface/interface';
 
-const CoordsService = async () => {
+const CoordsService = async (): void => {
   try {
     if (Platform.OS === 'android') {
-      const granted = await PermissionsAndroid.request(
+      const granted: IGranted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
           title: 'Geolocation Permission',
@@ -19,7 +20,7 @@ const CoordsService = async () => {
         console.log('Location permission denied');
       }
     }
-  } catch (err) {
+  } catch (err: string) {
     console.log(err);
   }
 };

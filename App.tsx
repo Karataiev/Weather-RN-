@@ -5,7 +5,7 @@ import CoordsService from './src/service/CoordsService';
 import Geolocation from 'react-native-geolocation-service';
 
 const App: React.FC = () => {
-  const [state, setState] = useState({latitude: 0, longitude: 0});
+  const [state, setState] = useState<number>({latitude: 0, longitude: 0});
 
   useEffect(() => {
     CoordsService().then(

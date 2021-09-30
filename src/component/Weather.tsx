@@ -5,9 +5,9 @@ import HeaderWeather from './HeaderWeather';
 import WeatherService from '../service/WeatherService';
 import IWeather from '../interface/interface';
 
-const Weather: React.FC = ({latitude, longitude}: IWeather) => {
+const Weather: React.FC<IWeather> = ({latitude, longitude}) => {
   const [days, setDays] = useState(null);
-  const [country, setCountry] = useState('');
+  const [country, setCountry] = useState<string>('');
   useEffect(() => {
     if (!latitude && !longitude) {
       return;

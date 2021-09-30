@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import IHeaderWeather from '../interface/interface';
 
-const HeaderWeather: React.FC = ({temp, weather}: IHeaderWeather) => {
+const HeaderWeather: React.FC<IHeaderWeather> = ({temp, weather}) => {
   return (
     <View style={styles.horizontal}>
       <Text style={styles.interval}>{weather[0].description}</Text>
